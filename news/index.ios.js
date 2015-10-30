@@ -25,7 +25,7 @@ var news = React.createClass({
     return(
       <TabBarIOS>
 
-        <TabBarIOS.Item title="新闻"
+        <TabBarIOS.Item title="新闻" icon={require('image!tabbar_news')}
           selected={ this.state.selectedTab === 'news'}>
           
           <View style={ styles.pageView }>
@@ -33,7 +33,7 @@ var news = React.createClass({
           </View>
         </TabBarIOS.Item>
 
-        <TabBarIOS.Item title="图片"
+        <TabBarIOS.Item title="图片" icon={require('image!tabbar_picture')}
           selected={ this.state.selectedTab === 'pics'}>
           
           <View style={ styles.pageView }>
@@ -41,7 +41,7 @@ var news = React.createClass({
           </View>
         </TabBarIOS.Item>
 
-        <TabBarIOS.Item title="视频"
+        <TabBarIOS.Item title="视频" icon={require('image!tabbar_video')}
           selected={ this.state.selectedTab === 'videos'}>
           
           <View style={ styles.pageView }>
@@ -49,7 +49,7 @@ var news = React.createClass({
           </View>
         </TabBarIOS.Item>
 
-        <TabBarIOS.Item title="我的"
+        <TabBarIOS.Item title="我的" icon={require('image!tabbar_setting')}
           selected={ this.state.selectedTab === 'setting'}>
           
           <View style={ styles.pageView }>
