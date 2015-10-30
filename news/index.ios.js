@@ -8,11 +8,15 @@ var React = require('react-native');
 
 var {
   AppRegistry,
-  StyleSheet,
   TabBarIOS,
   Text,
-  View,
+  View
 } = React;
+
+var NewsView = require('./iosjs/pages/NewsView');
+var PicsView = require('./iosjs/pages/PicsView');
+var VideosView = require('./iosjs/pages/VideosView');
+var SettingView = require('./iosjs/pages/SettingView');
 
 var news = React.createClass({
   getInitialState() {
@@ -26,35 +30,37 @@ var news = React.createClass({
       <TabBarIOS>
 
         <TabBarIOS.Item title="新闻" icon={require('image!tabbar_news')}
-          selected={ this.state.selectedTab === 'news'}>
+          selected={ this.state.selectedTab === 'news'} onPress={() => {this.setState({
+            selectedTab:'news' 
+          })}}>
+
+          <NewsView></NewsView>
           
-          <View style={ styles.pageView }>
-            <Text>新闻</Text>
-          </View>
         </TabBarIOS.Item>
 
         <TabBarIOS.Item title="图片" icon={require('image!tabbar_picture')}
-          selected={ this.state.selectedTab === 'pics'}>
+          selected={ this.state.selectedTab === 'pics'} onPress={ () => {this.setState({
+            selectedTab:'pics' 
+          })}}>
+
+          <PicsView></PicsView>
           
-          <View style={ styles.pageView }>
-            <Text>图片</Text>
-          </View>
         </TabBarIOS.Item>
 
         <TabBarIOS.Item title="视频" icon={require('image!tabbar_video')}
-          selected={ this.state.selectedTab === 'videos'}>
+          selected={ this.state.selectedTab === 'videos'} onPress={ () => {this.setState({
+            selectedTab:'videos' 
+          })}}>
           
-          <View style={ styles.pageView }>
-            <Text>视频</Text>
-          </View>
+          <VideosView></VideosView>
         </TabBarIOS.Item>
 
         <TabBarIOS.Item title="我的" icon={require('image!tabbar_setting')}
-          selected={ this.state.selectedTab === 'setting'}>
+          selected={ this.state.selectedTab === 'setting'} onPress={ () => {this.setState({
+            selectedTab:'setting' 
+          })}}>
           
-          <View style={ styles.pageView }>
-            <Text>我的</Text>
-          </View>
+          <SettingView></SettingView>
         </TabBarIOS.Item>
       
       </TabBarIOS>
@@ -62,11 +68,5 @@ var news = React.createClass({
   }
 });
 
-var styles = StyleSheet.create({
-  pageView: {
-    backgroundColor: '#fff',
-    flex: 1
-  }
-});
 
 AppRegistry.registerComponent('news', () => news);
