@@ -5,49 +5,68 @@
 'use strict';
 
 var React = require('react-native');
+
 var {
   AppRegistry,
   StyleSheet,
+  TabBarIOS,
   Text,
   View,
 } = React;
 
 var news = React.createClass({
+  getInitialState() {
+    return {
+      selectedTab: 'news'
+    }
+  },
+  
   render: function() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to RNNews!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
-    );
+    return(
+      <TabBarIOS>
+
+        <TabBarIOS.Item title="新闻"
+          selected={ this.state.selectedTab === 'news'}>
+          
+          <View style={ styles.pageView }>
+            <Text>新闻</Text>
+          </View>
+        </TabBarIOS.Item>
+
+        <TabBarIOS.Item title="图片"
+          selected={ this.state.selectedTab === 'pics'}>
+          
+          <View style={ styles.pageView }>
+            <Text>图片</Text>
+          </View>
+        </TabBarIOS.Item>
+
+        <TabBarIOS.Item title="视频"
+          selected={ this.state.selectedTab === 'videos'}>
+          
+          <View style={ styles.pageView }>
+            <Text>视频</Text>
+          </View>
+        </TabBarIOS.Item>
+
+        <TabBarIOS.Item title="我的"
+          selected={ this.state.selectedTab === 'setting'}>
+          
+          <View style={ styles.pageView }>
+            <Text>我的</Text>
+          </View>
+        </TabBarIOS.Item>
+      
+      </TabBarIOS>
+      );
   }
 });
 
 var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  pageView: {
+    backgroundColor: '#fff',
+    flex: 1
+  }
 });
 
 AppRegistry.registerComponent('news', () => news);
